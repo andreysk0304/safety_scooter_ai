@@ -9,13 +9,16 @@ logger = logging.getLogger(__name__)
 
 
 class S3Client:
-    def __init__(self, aws_access_key_id: Optional[str] = None, aws_secret_access_key: Optional[str] = None, aws_region: str = "ru-central1"):
+    def __init__(self, aws_access_key_id: Optional[str] = None, aws_secret_access_key: Optional[str] = None, aws_region: str = "ru-1", s3_endpoint_url: Optional[str] = None):
 
         kwargs = {'region_name': aws_region}
 
         if aws_access_key_id and aws_secret_access_key:
             kwargs['aws_access_key_id'] = aws_access_key_id
             kwargs['aws_secret_access_key'] = aws_secret_access_key
+        
+        if s3_endpoint_url:
+            kwargs['endpoint_url'] = s3_endpoint_url
 
         self.s3 = boto3.client('s3', **kwargs)
 

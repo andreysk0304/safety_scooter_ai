@@ -8,7 +8,8 @@ from src.utils.config import (
     S3_BUCKET,
     AWS_ACCESS_KEY_ID,
     AWS_SECRET_ACCESS_KEY,
-    AWS_REGION
+    AWS_REGION,
+    S3_ENDPOINT_URL
 )
 
 from src.ai_worker import AiWorker
@@ -24,7 +25,8 @@ def main():
             s3_bucket=S3_BUCKET,
             aws_access_key_id=AWS_ACCESS_KEY_ID,
             aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-            aws_region=AWS_REGION
+            aws_region=AWS_REGION,
+            s3_endpoint_url=S3_ENDPOINT_URL
         )
 
         worker.run_forever(check_interval=CHECK_INTERVAL)

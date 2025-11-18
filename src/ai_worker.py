@@ -26,7 +26,8 @@ class AiWorker:
         s3_bucket: str,
         aws_access_key_id: Optional[str] = None,
         aws_secret_access_key: Optional[str] = None,
-        aws_region: str = "ru-central1"
+        aws_region: str = "ru-1",
+        s3_endpoint_url: Optional[str] = None
     ) -> None:
 
         self.db = Database(database_url)
@@ -35,6 +36,7 @@ class AiWorker:
         self.aws_access_key_id = aws_access_key_id
         self.aws_secret_access_key = aws_secret_access_key
         self.aws_region = aws_region
+        self.s3_endpoint_url = s3_endpoint_url
 
         logger.info('AiWorker успешно инициализирован!')
 
@@ -66,7 +68,8 @@ class AiWorker:
                 key=task.key,
                 aws_access_key_id=self.aws_access_key_id,
                 aws_secret_access_key=self.aws_secret_access_key,
-                aws_region=self.aws_region
+                aws_region=self.aws_region,
+                s3_endpoint_url=self.s3_endpoint_url
             )
 
             self._save_results(task, violations, session)

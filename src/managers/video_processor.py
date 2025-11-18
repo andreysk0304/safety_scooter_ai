@@ -37,14 +37,15 @@ class VideoProcessor:
             raise
 
 
-    def process_video_from_s3(self, bucket: str, key: str, aws_access_key_id: Optional[str] = None, aws_secret_access_key: Optional[str] = None, aws_region: str = "ru-central1") -> dict[int, set[Violation]]:
+    def process_video_from_s3(self, bucket: str, key: str, aws_access_key_id: Optional[str] = None, aws_secret_access_key: Optional[str] = None, aws_region: str = "ru-1", s3_endpoint_url: Optional[str] = None) -> dict[int, set[Violation]]:
         if not self.model_loaded:
             raise RuntimeError("Модель не загружена")
 
         s3_client = S3Client(
             aws_access_key_id=aws_access_key_id,
             aws_secret_access_key=aws_secret_access_key,
-            aws_region=aws_region
+            aws_region=aws_region,
+            s3_endpoint_url=s3_endpoint_url
         )
 
         tmp_path = s3_client.download_video(bucket, key)

@@ -51,12 +51,12 @@ logs/
 *.sqlite
 *.sqlite3
 
-# Models
-models/
-*.pt
-*.pth
-*.onnx
-*.weights
+# Models (закомментировано - модель коммитится в репозиторий)
+# models/
+# *.pt
+# *.pth
+# *.onnx
+# *.weights
 
 # Temporary files
 tmp/
