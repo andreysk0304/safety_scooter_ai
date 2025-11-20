@@ -100,6 +100,8 @@ class VideoProcessor:
                     else:
                         violations[obj.id] = violations[obj.id].union(viols)
 
+        print(violations)
+
         logger.info(f"Обработка завершена: {frame_count} кадров")
 
         return violations

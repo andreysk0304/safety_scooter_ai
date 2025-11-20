@@ -3,6 +3,8 @@ from sqlalchemy.orm import sessionmaker, Session
 from contextlib import contextmanager
 from typing import Generator
 
+from src.database_models import Base
+
 
 class Database:
     def __init__(self, database_url: str = None):
@@ -13,6 +15,8 @@ class Database:
             pool_size=5,
             max_overflow=10
         )
+
+        Base.metadata.create_all(self.engine)
 
         self.SessionLocal = sessionmaker(
             autocommit=False,
