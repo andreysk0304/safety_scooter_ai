@@ -20,6 +20,9 @@ class VideoProcessor:
         self.model: Optional[YOLO] = None
         self.model_loaded = False
 
+        print("MODEL_PATH =", model_path)
+        print("MODEL EXISTS =", os.path.exists(model_path))
+
         self._load_model()
 
 
