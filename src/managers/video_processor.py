@@ -5,7 +5,9 @@ import cv2
 import logging
 
 from typing import Optional
+print("VIDEO_PROCESSOR: BEFORE YOLO IMPORT")
 from ultralytics import YOLO
+print("VIDEO_PROCESSOR: AFTER YOLO IMPORT")
 from ultralytics.engine.results import Results
 
 from src.violation_detector import detect_violation, Violation
