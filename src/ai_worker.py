@@ -1,3 +1,5 @@
+print("AI_WORKER IMPORTED")
+
 import datetime
 import logging
 

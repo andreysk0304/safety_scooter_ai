@@ -1,3 +1,5 @@
+print("MAIN STARTED")
+
 import sys
 import logging
 

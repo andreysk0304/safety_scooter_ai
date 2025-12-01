@@ -1,3 +1,5 @@
+print("VIDEO_PROCESSOR IMPORTED")
+
 import os
 import cv2
 import logging
