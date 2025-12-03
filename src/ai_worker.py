@@ -84,7 +84,11 @@ class AiWorker:
 
     def _save_results(self, task: Applications, violations: dict[int, set[Violation]], session: Session):
         if violations:
-            task.status = 'completed'
+            if any(len(violations[x]) > 0 for x in violations):
+                task.status = 'completed'
+            else:
+                task.status = 'no_violations'
+
         else:
             task.status = 'no_violations'
 
